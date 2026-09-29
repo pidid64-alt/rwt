@@ -52,6 +52,12 @@ python3 -m venv .venv
 python build_exe.py            # или .venv\Scripts\python build_exe.py
 ```
 
+> **Требования к Python для сборки: 3.10.1 или новее (рекомендуется 3.12/3.13).**
+> Python **3.10.0 использовать нельзя**: в нём ошибка дизассемблера `dis`
+> («IndexError: tuple index out of range»), из-за которой PyInstaller падает на середине
+> анализа байткода. Скачайте свежий Python с [python.org](https://www.python.org/downloads/)
+> и **пересоздайте** окружение (`py -m venv venv`).
+
 Результат:
 * Windows: `rza_at\dist\RZA-AT.exe` (~90–120 МБ) — двойной клик → сервер поднимается и
   открывается браузер; можно скопировать файл на любой компьютер;
@@ -69,7 +75,9 @@ python build_exe.py            # или .venv\Scripts\python build_exe.py
 * внутри exe упакованы интерфейс, нормативная база, профили терминалов и контрольные
   примеры 13Б — установка Python на компьютере пользователя не нужна;
 * режим `python build_exe.py --one-dir` даёт каталог `dist/RZA-AT/` с быстрым стартом
-  (удобно для отладки), `--onefile` — один самодостаточный файл.
+  (удобно для отладки), `--onefile` — один самодостаточный файл;
+* если сборка падает: удалите папки `build/`, `dist/`, файл `RZA-AT.spec` и повторите;
+  при ошибке «IndexError: tuple index out of range» — обновите Python (см. выше).
 
 ## Состав
 
