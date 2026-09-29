@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>РЗА-АТ — расчёт уставок РЗА автотрансформаторов 110–500 кВ</title>
+<link rel="stylesheet" href="/static/app.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230e2a47'/%3E%3Cpath d='M17 4 9 18h6l-2 10 10-16h-6z' fill='%23f6c445'/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">РЗА<span>·АТ</span></div>
+      <div class="brand-sub">Уставки РЗА автотрансформаторов 110–500 кВ</div>
+    </div>
+    <div class="proj-mini" id="proj-mini">
+      <div class="proj-mini-name" id="proj-mini-name">…</div>
+      <div class="proj-mini-meta"><span id="proj-mini-ver"></span> <span id="proj-mini-status" class="chip"></span></div>
+    </div>
+    <nav id="nav"></nav>
+    <div class="sidebar-foot">
+      <button class="btn btn-primary btn-block" id="btn-run">▶ Рассчитать</button>
+      <div id="stale-note" class="stale-note"></div>
+    </div>
+  </aside>
+
+  <div id="content">
+    <header id="topbar">
+      <div class="crumbs" id="crumbs"></div>
+      <div class="topbar-right">
+        <span id="editable-note" class="chip chip-draft"></span>
+        <button class="btn btn-ghost" id="btn-quick-checks" title="Проверки чувствительности и селективности">Проверки</button>
+        <button class="btn btn-ghost" id="btn-quick-card" title="Карта уставок">Карта уставок</button>
+        <button class="btn btn-ghost" id="btn-quick-report" title="Отчёты">Отчёт</button>
+      </div>
+    </header>
+    <main id="main">
+      <div class="loading-block">Загрузка…</div>
+    </main>
+  </div>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+
+<script src="/static/app.js"></script>
+<script src="/static/views.js"></script>
+<script>document.addEventListener('DOMContentLoaded', () => App.boot());</script>
+</body>
+</html>

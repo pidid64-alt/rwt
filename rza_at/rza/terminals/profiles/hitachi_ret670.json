@@ -1,0 +1,24 @@
+{
+ "schema": "rza-terminal-profile/1",
+ "id": "hitachi.ret670",
+ "manufacturer": "Hitachi Energy (ABB)",
+ "series": "Relion 670",
+ "model": "RET670 (защита трансформатора)",
+ "firmware": "",
+ "variants": [],
+ "status": "not_loaded",
+ "adapter": "generic",
+ "functions": {},
+ "parameters": [],
+ "mapping": {},
+ "sources": [],
+ "signals": [],
+ "iec61850": {
+  "supported": null,
+  "goose": null,
+  "sampled_values": null,
+  "mms": null,
+  "note": "не заполнено"
+ },
+ "notes": "ЗАГОТОВКА. Функции, параметры, диапазоны и шаги не заданы: их нужно загрузить из проверенного руководства по конкретному исполнению и версии ПО (мастер «Добавить устройство» либо импорт JSON). Расчётное ядро при этом не меняется."
+}

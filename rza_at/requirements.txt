@@ -1,0 +1,11 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+numpy>=1.26
+openpyxl>=3.1
+python-docx>=1.1
+reportlab>=4.0
+matplotlib>=3.8
+pydantic>=2.5
+pymupdf>=1.24   # только для импорта руководств терминалов (tools/import_siemens_manual.py)
+pytest>=8
+httpx>=0.27     # для тестов API

@@ -1,0 +1,24 @@
+{
+ "schema": "rza-terminal-profile/1",
+ "id": "siemens.7ut8x",
+ "manufacturer": "Siemens",
+ "series": "SIPROTEC 5",
+ "model": "7UT85 / 7UT86 / 7UT87",
+ "firmware": "",
+ "variants": [],
+ "status": "not_loaded",
+ "adapter": "generic",
+ "functions": {},
+ "parameters": [],
+ "mapping": {},
+ "sources": [],
+ "signals": [],
+ "iec61850": {
+  "supported": null,
+  "goose": null,
+  "sampled_values": null,
+  "mms": null,
+  "note": "не заполнено"
+ },
+ "notes": "ЗАГОТОВКА. Функции, параметры, диапазоны и шаги не заданы: их нужно загрузить из проверенного руководства по конкретному исполнению и версии ПО (мастер «Добавить устройство» либо импорт JSON). Расчётное ядро при этом не меняется."
+}

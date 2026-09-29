@@ -1,0 +1,836 @@
+{
+ "schema": "rza-terminal-profile/1",
+ "id": "template.generic",
+ "manufacturer": "Пользовательский",
+ "series": "Шаблон",
+ "model": "Универсальный терминал (условные диапазоны)",
+ "firmware": "—",
+ "variants": [
+  "шаблон"
+ ],
+ "status": "template",
+ "adapter": "generic",
+ "rated_current_options": [
+  "1 A",
+  "5 A"
+ ],
+ "frequency_hz": [
+  50
+ ],
+ "sources": [
+  {
+   "doc": "Шаблон профиля РЗА-АТ: диапазоны и шаги условные, не относятся к реальному устройству",
+   "note": "Заменить данными из руководства по эксплуатации конкретного терминала"
+  }
+ ],
+ "conventions": {
+  "restraint": {
+   "definition": "half_sum",
+   "k_conv": 1.0,
+   "description": "I_торм = ½·Σ|I| (среднее); наклоны в % от сквозного тока",
+   "source": {
+    "doc": "Шаблон"
+   }
+  },
+  "characteristic_geometry": {
+   "type": "max_of_lines",
+   "description": "Как в универсальной модели"
+  },
+  "reset_ratio": {
+   "default": 0.95,
+   "49": 0.97
+  },
+  "tolerances": {
+   "87T.char": 0.03
+  }
+ },
+ "functions": {
+  "87T": {
+   "supported": true,
+   "group": "Дифференциальная защита",
+   "note": "шаблон"
+  },
+  "50/51": {
+   "supported": true,
+   "group": "МТЗ",
+   "note": "шаблон (ток — первичные амперы)"
+  },
+  "50N/51N": {
+   "supported": true,
+   "group": "ТЗНП",
+   "note": "шаблон"
+  },
+  "46": {
+   "supported": true,
+   "group": "Обратная последовательность",
+   "note": "шаблон"
+  },
+  "21": {
+   "supported": true,
+   "group": "Дистанционная защита",
+   "note": "шаблон (сопротивления — первичные Ом)"
+  },
+  "49": {
+   "supported": true,
+   "group": "Тепловая защита",
+   "note": "шаблон"
+  },
+  "67": {
+   "supported": false,
+   "note": "не заложено в шаблоне"
+  },
+  "67N": {
+   "supported": false,
+   "note": "не заложено в шаблоне"
+  }
+ },
+ "parameters": [
+  {
+   "key": "DIF.Id",
+   "address": "DIF.Id",
+   "name": "Минимальный дифференциальный ток I_д>",
+   "function": "87T",
+   "kind": "float",
+   "unit": "% In",
+   "min": 5,
+   "max": 100,
+   "step": 1,
+   "default": 20,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.S1",
+   "address": "DIF.S1",
+   "name": "Наклон 1",
+   "function": "87T",
+   "kind": "float",
+   "unit": "%",
+   "min": 10,
+   "max": 80,
+   "step": 1,
+   "default": 25,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.B1",
+   "address": "DIF.B1",
+   "name": "Опорная точка 1",
+   "function": "87T",
+   "kind": "float",
+   "unit": "× In",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.S2",
+   "address": "DIF.S2",
+   "name": "Наклон 2",
+   "function": "87T",
+   "kind": "float",
+   "unit": "%",
+   "min": 20,
+   "max": 150,
+   "step": 1,
+   "default": 50,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.B2",
+   "address": "DIF.B2",
+   "name": "Опорная точка 2",
+   "function": "87T",
+   "kind": "float",
+   "unit": "× In",
+   "min": 0,
+   "max": 10,
+   "step": 0.05,
+   "default": 1.0,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.Idd",
+   "address": "DIF.Idd",
+   "name": "Ток срабатывания высшей ступени I_д>>",
+   "function": "87T",
+   "kind": "float",
+   "unit": "× In",
+   "min": 2,
+   "max": 30,
+   "step": 0.5,
+   "default": 8,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.T",
+   "address": "DIF.T",
+   "name": "Выдержка I_д>",
+   "function": "87T",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 5,
+   "step": 0.01,
+   "default": 0,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.Tdd",
+   "address": "DIF.Tdd",
+   "name": "Выдержка I_д>>",
+   "function": "87T",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 5,
+   "step": 0.01,
+   "default": 0,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.Inr",
+   "address": "DIF.Inr",
+   "name": "Блокировка по 2-й гармонике",
+   "function": "87T",
+   "kind": "enum",
+   "unit": "",
+   "options": [
+    "ON",
+    "OFF"
+   ],
+   "default": "ON",
+   "verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)"
+   }
+  },
+  {
+   "key": "DIF.H2",
+   "address": "DIF.H2",
+   "name": "Порог 2-й гармоники",
+   "function": "87T",
+   "kind": "float",
+   "unit": "%",
+   "min": 5,
+   "max": 50,
+   "step": 1,
+   "default": 15,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "DIF.Hn",
+   "address": "DIF.Hn",
+   "name": "Блокировка n-й гармоникой",
+   "function": "87T",
+   "kind": "enum",
+   "unit": "",
+   "options": [
+    "OFF",
+    "3",
+    "5"
+   ],
+   "default": "OFF",
+   "verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)"
+   }
+  },
+  {
+   "key": "DIF.HnL",
+   "address": "DIF.HnL",
+   "name": "Порог n-й гармоники",
+   "function": "87T",
+   "kind": "float",
+   "unit": "%",
+   "min": 10,
+   "max": 60,
+   "step": 1,
+   "default": 30,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "OC.I",
+   "address": "OC.I",
+   "name": "Ток срабатывания МТЗ",
+   "function": "50/51",
+   "kind": "float",
+   "unit": "A перв.",
+   "min": 10,
+   "max": 20000,
+   "step": 1,
+   "default": 600,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "OC.T",
+   "address": "OC.T",
+   "name": "Выдержка МТЗ",
+   "function": "50/51",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 20,
+   "step": 0.05,
+   "default": 1,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "NP.I",
+   "address": "NP.I",
+   "name": "Ток срабатывания ТЗНП (3I0)",
+   "function": "50N/51N",
+   "kind": "float",
+   "unit": "A перв.",
+   "min": 10,
+   "max": 10000,
+   "step": 1,
+   "default": 300,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "NP.T",
+   "address": "NP.T",
+   "name": "Выдержка ТЗНП",
+   "function": "50N/51N",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 20,
+   "step": 0.05,
+   "default": 1,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "NS.I2",
+   "address": "NS.I2",
+   "name": "Ток срабатывания защиты ОП",
+   "function": "46",
+   "kind": "float",
+   "unit": "A перв.",
+   "min": 5,
+   "max": 5000,
+   "step": 1,
+   "default": 100,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "NS.T",
+   "address": "NS.T",
+   "name": "Выдержка защиты ОП",
+   "function": "46",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 20,
+   "step": 0.05,
+   "default": 1,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "Z.Z1",
+   "address": "Z.Z1",
+   "name": "Сопротивление 1-й ступени",
+   "function": "21",
+   "kind": "float",
+   "unit": "Ом перв.",
+   "min": 0.1,
+   "max": 500,
+   "step": 0.01,
+   "default": 10,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "Z.T1",
+   "address": "Z.T1",
+   "name": "Выдержка 1-й ступени",
+   "function": "21",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 5,
+   "step": 0.05,
+   "default": 0.3,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "Z.Z2",
+   "address": "Z.Z2",
+   "name": "Сопротивление 2-й ступени",
+   "function": "21",
+   "kind": "float",
+   "unit": "Ом перв.",
+   "min": 0.1,
+   "max": 1000,
+   "step": 0.01,
+   "default": 50,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "Z.T2",
+   "address": "Z.T2",
+   "name": "Выдержка 2-й ступени",
+   "function": "21",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 10,
+   "step": 0.05,
+   "default": 1,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "Z.A2",
+   "address": "Z.A2",
+   "name": "Смещение 2-й ступени",
+   "function": "21",
+   "kind": "float",
+   "unit": "о.е.",
+   "min": -0.1,
+   "max": 0.5,
+   "step": 0.01,
+   "default": 0,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "TH.K",
+   "address": "TH.K",
+   "name": "K-фактор",
+   "function": "49",
+   "kind": "float",
+   "unit": "о.е.",
+   "min": 0.5,
+   "max": 2.0,
+   "step": 0.01,
+   "default": 1.05,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "TH.TAU",
+   "address": "TH.TAU",
+   "name": "Постоянная времени",
+   "function": "49",
+   "kind": "float",
+   "unit": "мин",
+   "min": 1,
+   "max": 1000,
+   "step": 1,
+   "default": 60,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "TH.ALM",
+   "address": "TH.ALM",
+   "name": "Уровень предупреждения по температуре",
+   "function": "49",
+   "kind": "float",
+   "unit": "%",
+   "min": 50,
+   "max": 100,
+   "step": 1,
+   "default": 90,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "TH.IAL",
+   "address": "TH.IAL",
+   "name": "Токовый уровень сигнала перегрузки",
+   "function": "49",
+   "kind": "float",
+   "unit": "A перв.",
+   "min": 10,
+   "max": 20000,
+   "step": 1,
+   "default": 600,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  },
+  {
+   "key": "TH.TAL",
+   "address": "TH.TAL",
+   "name": "Выдержка сигнала перегрузки",
+   "function": "49",
+   "kind": "float",
+   "unit": "с",
+   "min": 0,
+   "max": 600,
+   "step": 0.5,
+   "default": 10,
+   "comment": "",
+   "verified": false,
+   "step_verified": false,
+   "source": {
+    "doc": "Шаблон (условные значения)",
+    "section": "—",
+    "page": 0
+   }
+  }
+ ],
+ "mapping": {
+  "87T.IdiffPickup": {
+   "instances": {
+    "": "DIF.Id"
+   },
+   "transform": "pct_from_pu"
+  },
+  "87T.Slope1": {
+   "instances": {
+    "": "DIF.S1"
+   },
+   "transform": "pct_from_pu"
+  },
+  "87T.BasePoint1": {
+   "instances": {
+    "": "DIF.B1"
+   },
+   "transform": "identity"
+  },
+  "87T.Slope2": {
+   "instances": {
+    "": "DIF.S2"
+   },
+   "transform": "pct_from_pu"
+  },
+  "87T.BasePoint2": {
+   "instances": {
+    "": "DIF.B2"
+   },
+   "transform": "identity"
+  },
+  "87T.HighSet": {
+   "instances": {
+    "": "DIF.Idd"
+   },
+   "transform": "identity"
+  },
+  "87T.Delay": {
+   "instances": {
+    "": "DIF.T"
+   },
+   "transform": "identity"
+  },
+  "87T.HighSetDelay": {
+   "instances": {
+    "": "DIF.Tdd"
+   },
+   "transform": "identity"
+  },
+  "87T.InrushBlocking": {
+   "instances": {
+    "": "DIF.Inr"
+   },
+   "transform": "bool_onoff"
+  },
+  "87T.Inrush2ndHarm": {
+   "instances": {
+    "": "DIF.H2"
+   },
+   "transform": "identity"
+  },
+  "87T.NthHarmMode": {
+   "instances": {
+    "": "DIF.Hn"
+   },
+   "transform": "enum_map",
+   "map": {
+    "off": "OFF",
+    "3": "3",
+    "5": "5"
+   }
+  },
+  "87T.NthHarm": {
+   "instances": {
+    "": "DIF.HnL"
+   },
+   "transform": "identity"
+  },
+  "51.IPickup": {
+   "instances": {
+    "*": "OC.I"
+   },
+   "transform": "identity"
+  },
+  "51.Delay": {
+   "instances": {
+    "*": "OC.T"
+   },
+   "transform": "identity"
+  },
+  "51N.I0Pickup": {
+   "instances": {
+    "*": "NP.I"
+   },
+   "transform": "identity"
+  },
+  "51N.Delay": {
+   "instances": {
+    "*": "NP.T"
+   },
+   "transform": "identity"
+  },
+  "46.I2Pickup": {
+   "instances": {
+    "*": "NS.I2"
+   },
+   "transform": "identity"
+  },
+  "46.Delay": {
+   "instances": {
+    "*": "NS.T"
+   },
+   "transform": "identity"
+  },
+  "21.Z1": {
+   "instances": {
+    "*": "Z.Z1"
+   },
+   "transform": "identity"
+  },
+  "21.Z1Delay": {
+   "instances": {
+    "*": "Z.T1"
+   },
+   "transform": "identity"
+  },
+  "21.Z2": {
+   "instances": {
+    "*": "Z.Z2"
+   },
+   "transform": "identity"
+  },
+  "21.Z2Delay": {
+   "instances": {
+    "*": "Z.T2"
+   },
+   "transform": "identity"
+  },
+  "21.Z2Offset": {
+   "instances": {
+    "*": "Z.A2"
+   },
+   "transform": "identity"
+  },
+  "49.KFactor": {
+   "instances": {
+    "*": "TH.K"
+   },
+   "transform": "identity"
+  },
+  "49.TimeConstant": {
+   "instances": {
+    "*": "TH.TAU"
+   },
+   "transform": "identity"
+  },
+  "49.ThetaAlarm": {
+   "instances": {
+    "*": "TH.ALM"
+   },
+   "transform": "identity"
+  },
+  "49.IAlarm": {
+   "instances": {
+    "*": "TH.IAL"
+   },
+   "transform": "identity"
+  },
+  "49.AlarmDelay": {
+   "instances": {
+    "*": "TH.TAL"
+   },
+   "transform": "identity"
+  }
+ },
+ "dependencies": [
+  {
+   "rule": "DIF.S1 <= DIF.S2",
+   "text": "Наклон 2 не менее наклона 1",
+   "source": "шаблон",
+   "verified": false
+  }
+ ],
+ "signals": [],
+ "iec61850": {
+  "supported": false,
+  "goose": false,
+  "sampled_values": false,
+  "mms": false,
+  "note": "заполняется пользователем"
+ },
+ "notes": "ШАБЛОН: все диапазоны, шаги и единицы условные. Для реального устройства создайте копию через «Конструктор терминала» и заполните из руководства."
+}

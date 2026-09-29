@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Служебные данные приложения (проекты, пользовательские профили терминалов)
+rza_at/user_data/
+
+# Node (смоук-тесты интерфейса)
+node_modules/
+package-lock.json
