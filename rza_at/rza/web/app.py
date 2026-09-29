@@ -27,14 +27,14 @@ from ..model.autotransformer import tap_states, tap_keys
 from ..model.demo import blank_project, demo_project
 from ..model.modes import default_modes
 from ..model.project import Project, TerminalAssign
+from .. import paths
 from ..normative import DEFAULT_PRIORITY, registry
 from ..reports.model import KINDS, build_report, export_guard
 from ..reports.render import RENDERERS
 from ..terminals.registry import terminal_registry
 
-ROOT = Path(__file__).resolve().parents[2]
-PROJECTS = ROOT / "user_data" / "projects"
-STATIC = Path(__file__).parent / "static"
+PROJECTS = paths.USER_DATA / "projects"
+STATIC = paths.STATIC_DIR
 
 
 def _default(o):

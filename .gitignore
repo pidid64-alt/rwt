@@ -2,7 +2,13 @@
 __pycache__/
 *.pyc
 .venv/
+.venv-build/
 .pytest_cache/
+
+# Артефакты сборки exe (PyInstaller)
+rza_at/dist/
+rza_at/build/
+*.spec
 
 # Служебные данные приложения (проекты, пользовательские профили терминалов)
 rza_at/user_data/

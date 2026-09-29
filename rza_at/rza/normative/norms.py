@@ -12,8 +12,9 @@ from pathlib import Path
 
 from .sources import DEFAULT_PRIORITY, SourceRegistry
 from ..errors import DataError
+from .. import paths
 
-DATA = Path(__file__).parent / "data"
+DATA = paths.NORM_DATA
 
 
 @dataclass

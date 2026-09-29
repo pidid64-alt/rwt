@@ -5,8 +5,9 @@ import json
 from pathlib import Path
 
 from . import b13
+from .. import paths
 
-DATA = Path(__file__).resolve().parents[2] / "tests" / "data" / "b13_examples.json"
+DATA = paths.SELFTEST_DATA / "b13_examples.json"
 FUNCS = {"rnt565_two_winding": b13.rnt565_two_winding, "optimal_voltage_two_winding": b13.optimal_voltage_two_winding, "dzt11_min_current": b13.dzt11_min_current}
 
 

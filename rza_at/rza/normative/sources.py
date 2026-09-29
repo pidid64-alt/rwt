@@ -5,7 +5,9 @@ import json
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 
-DATA = Path(__file__).parent / "data"
+from .. import paths
+
+DATA = paths.NORM_DATA
 
 # Базовая структура приоритета (ТЗ, раздел 3). Настраивается в проекте.
 DEFAULT_PRIORITY = [

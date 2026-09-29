@@ -9,11 +9,12 @@ import json
 import re
 from pathlib import Path
 
+from .. import paths
 from ..errors import ProfileError
 from .profile import TerminalProfile
 
-BUILTIN_DIR = Path(__file__).parent / "profiles"
-USER_DIR = Path(__file__).resolve().parents[2] / "user_data" / "terminals"
+BUILTIN_DIR = paths.PROFILE_DIR
+USER_DIR = paths.USER_DATA / "terminals"
 
 
 class TerminalRegistry:

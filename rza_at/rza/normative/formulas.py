@@ -18,8 +18,9 @@ from pathlib import Path
 
 from ..errors import FormulaError
 from ..trace import evaluate, _ident, _CONST, _FUNCS
+from .. import paths
 
-DATA = Path(__file__).parent / "data"
+DATA = paths.NORM_DATA
 
 
 @dataclass

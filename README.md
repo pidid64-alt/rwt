@@ -37,6 +37,40 @@ NODE_PATH=<node_modules с jsdom> node tools/ui_smoke.js        # смоук-т�
 NODE_PATH=<node_modules с jsdom> node tools/ui_actions_test.js # интерактивные действия UI
 ```
 
+## Сборка в один исполняемый файл (.exe)
+
+Проект упаковывается в **один файл** средствами PyInstaller (проверено: единый бинарник
+стартует с чистым каталогом, расчёт и отчёты работают; данные создаются в `user_data/`
+рядом с файлом):
+
+```bash
+cd rza_at
+python3 -m venv .venv
+.venv\Scripts\pip install -r requirements.txt pyinstaller   # Windows
+# .venv/bin/pip install -r requirements.txt pyinstaller      # Linux
+
+python build_exe.py            # или .venv\Scripts\python build_exe.py
+```
+
+Результат:
+* Windows: `rza_at\dist\RZA-AT.exe` (~90–120 МБ) — двойной клик → сервер поднимается и
+  открывается браузер; можно скопировать файл на любой компьютер;
+* Linux: `rza_at/dist/RZA-AT`.
+
+Ключи запуска: `RZA-AT.exe [порт] [--no-browser]`, например `RZA-AT.exe 8080 --no-browser`.
+
+Рядом с exe создаётся каталог **`user_data/`** (проекты, пользовательские профили терминалов,
+пользовательские формулы) — копируйте его вместе с программой. Другое расположение задаётся
+переменной окружения `RZA_USER_DATA`.
+
+Примечания:
+* собирайте exe **на той же ОС**, где он будет работать (PyInstaller не кросс-компилирует:
+  для Windows запускайте `build_exe.py` на Windows);
+* внутри exe упакованы интерфейс, нормативная база, профили терминалов и контрольные
+  примеры 13Б — установка Python на компьютере пользователя не нужна;
+* режим `python build_exe.py --one-dir` даёт каталог `dist/RZA-AT/` с быстрым стартом
+  (удобно для отладки), `--onefile` — один самодостаточный файл.
+
 ## Состав
 
 | Модуль | Содержание |

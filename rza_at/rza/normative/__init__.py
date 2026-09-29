@@ -7,7 +7,9 @@ from .sources import SourceRegistry, DEFAULT_PRIORITY
 from .norms import NormRegistry, NormValue
 from .formulas import FormulaLibrary, Formula
 
-USER_DIR = Path(__file__).resolve().parents[2] / "user_data" / "formulas"
+from .. import paths
+
+USER_DIR = paths.USER_DATA / "formulas"
 
 _singleton = None
 
